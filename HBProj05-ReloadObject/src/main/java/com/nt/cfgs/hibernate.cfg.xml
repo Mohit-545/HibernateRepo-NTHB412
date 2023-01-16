@@ -6,7 +6,7 @@
     <hibernate-configuration>
     	<session-factory>
     	<!-- jdbc properties configuration -->
-    		<property name="connection.url">jdbc:mysql:///ntspbms616db</property>
+    		<property name="connection.url">jdbc:mysql:///nthb412db</property>
     		<property name="connection.username">root</property>
     		<property name="connection.password">root</property>
     	<!-- hibernate properties configuration -->

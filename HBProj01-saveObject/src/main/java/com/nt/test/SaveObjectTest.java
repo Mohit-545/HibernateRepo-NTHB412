@@ -21,14 +21,15 @@ public class SaveObjectTest {
     				//create Session object
     	    		Session ses = factory.openSession();){
     			//begin Transaction
-    				tx = ses.beginTransaction();  //this internall calls setAutoCommit(false) to disable auto commit on DB s/w
+    				tx = ses.beginTransaction();  //this internal calls setAutoCommit(false) to disable auto commit on DB s/w
+    				
     				//prepare entity class object
-    					Product prod = new Product();
-    					prod.setPid(1003);	prod.setPname("Mirror");// prod.setPrice(7500.0f); prod.setQty(22.0f);
+    					Product p = new Product();
+    					p.setPid(1001); //p.setPname("Table"); p.setPrice(9000.0f); p.setQty(15.0f);
     				//save the object
-    					Integer idVal = (Integer) ses.save(prod);
-    					//ses.persist(prod);
-    					System.out.println("The generated IdVal is :: "+idVal);
+    					//Integer idVal = (Integer) ses.save(p);
+    					ses.persist(p);
+    					//System.out.println("The generated IdVal is :: "+idVal);
     				//commit the transaction
     					tx.commit();  //this internally calls con.commit() method
     					System.out.println("Object is saved and Record is Inserted");
@@ -38,6 +39,7 @@ public class SaveObjectTest {
     			if(tx!=null && tx.getRollbackOnly() && tx.getStatus()!=null) {
 		    			tx.rollback();  //this internally calls con.rollback() method
 		    			System.out.println("Object is not saved and Record is not inserted");
+
     			}//if
 			}//catch
     		

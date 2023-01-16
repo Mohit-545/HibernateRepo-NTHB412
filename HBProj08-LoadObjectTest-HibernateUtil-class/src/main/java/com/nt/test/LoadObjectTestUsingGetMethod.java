@@ -17,7 +17,7 @@ public class LoadObjectTestUsingGetMethod {
     		Session ses = HibernateUtil.getSession();
     	try(factory;ses){
     		// load object
-    			Product prod = ses.get(Product.class, 1002);
+    			Product prod = ses.get(Product.class, 1001);
     			if(prod==null)
     				System.out.println("Record not found");
     			else

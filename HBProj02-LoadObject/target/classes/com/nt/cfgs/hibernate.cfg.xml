@@ -11,7 +11,7 @@
     		<property name="hibernate.connection.username">mohitdb</property>
     		<property name="hibernate.connection.password">mohitdb</property> -->	
     <!-- cfg JDBC Properties for Oracle Db s/w --> 
-    		<property name="hibernate.connection.url">jdbc:mysql:///ntspbms616db</property>
+    		<property name="hibernate.connection.url">jdbc:mysql:///nthb412db</property>
     		<property name="hibernate.connection.username">root</property>
     		<property name="hibernate.connection.password">root</property>
     		

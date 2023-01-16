@@ -23,7 +23,7 @@ public class LoadObjectTestUsingLoadMethod {
     		//try with resource java 9 syntax
     		try (factory;ses){
     				//Load Object using getMethod()
-    					Product prod = ses.load(Product.class, 1006);
+    					Product prod = ses.load(Product.class, 1001);
     					System.out.println(prod.getClass()+"         "+prod.getClass().getSuperclass());
     					System.out.println("=========================================================================");
     				    System.out.println(prod);				
