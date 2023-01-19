@@ -32,5 +32,7 @@ public class Movie {
 	@Column(name = "BUDGET")
 	//@Transient
 	private Float budget;
+	@Column(name = "STATUS", length = 20)
+	private String status;
 
 }//class

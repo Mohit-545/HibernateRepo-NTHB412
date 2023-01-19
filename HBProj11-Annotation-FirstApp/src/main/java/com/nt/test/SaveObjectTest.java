@@ -22,31 +22,34 @@ public class SaveObjectTest {
     			//begin Tx
     			tx = ses.beginTransaction();
     			//create and save object
-//    			Movie movie = new Movie();
-//    			movie.setMid(1103); movie.setMname("Pushpa"); //movie.setHero("Prabhas"); movie.setBudget(200.0f);
-//    			ses.save(movie);
+    			Movie movie = new Movie();
+    			movie.setMid(1105); movie.setMname("Ram Setu"); movie.setHero("Akshay"); movie.setBudget(800.0f);
+    			movie.setStatus("Success");;
+    			ses.save(movie);
+    			tx.commit();
+    			System.out.println(movie);
 //    			Movie m = ses.get(Movie.class, 1101);
 //    			if(m!=null)
 //    				System.out.println(m);
 //    			else
 //    				System.out.println("Object not found");
     			//get the object
-    			Movie movie = ses.get(Movie.class, 1103);
-    			if(movie==null) {
-    				System.out.println("Object not found");
-    				return;
-    			}
-    			else {
-    				Movie movie1 = new Movie();
-    				movie1.setMid(1103);
-    				movie1.setMname("Pushpa");
-    				movie1.setHero("Allu Arjun");
-    				movie1.setBudget(300f);
-    				Movie movie2 = (Movie)ses.merge(movie1);
-    				tx.commit();
-    				System.out.println("Object is saved");
-    				System.out.println("Updated Object :: "+movie2);
-    			}
+//    			Movie movie = ses.get(Movie.class, 1103);
+//    			if(movie==null) {
+//    				System.out.println("Object not found");
+//    				return;
+//    			}
+//    			else {
+//    				Movie movie1 = new Movie();
+//    				movie1.setMid(1103);
+//    				movie1.setMname("Pushpa");
+//    				movie1.setHero("Allu Arjun");
+//    				movie1.setBudget(300f);
+//    				Movie movie2 = (Movie)ses.merge(movie1);
+//    				tx.commit();
+//    				System.out.println("Object is saved");
+//    				System.out.println("Updated Object :: "+movie2);
+ //   			}
     	 	}//try
     	catch (HibernateException he) {
 	    	if(tx!=null && tx.getStatus()!=null && tx.getRollbackOnly()) {
