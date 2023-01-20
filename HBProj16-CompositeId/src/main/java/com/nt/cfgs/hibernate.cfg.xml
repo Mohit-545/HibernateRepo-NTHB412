@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+    
+    <hibernate-configuration>
+    	<session-factory>
+    		<!-- jdbc properties cfg -->
+    			<property name="connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property>
+    			<property name="connection.username">mohitdb</property>
+    			<property name="connection.password">mohitdb</property>	
+    		<!-- Hibernate properties cfg -->
+    			<property name="show_sql">true</property>
+    			<property name="format_sql">true</property>
+    			<property name="hbm2ddl.auto">update</property>
+    		<!-- Hibernate mapping -->
+    			<mapping resource="com/nt/entity/ProgrammerProjectInfo.hbm.xml"/>	
+    	
+    	</session-factory>
+    
+    </hibernate-configuration>
