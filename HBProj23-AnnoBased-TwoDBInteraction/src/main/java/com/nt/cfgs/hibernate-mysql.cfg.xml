@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+    
+    <hibernate-configuration>
+    	<session-factory>
+    <!-- cfg JDBC Properties for MySql Db s/w --> 
+    		<property name="hibernate.connection.url">jdbc:mysql:///nthb412db</property>
+    		<property name="hibernate.connection.username">root</property>
+    		<property name="hibernate.connection.password">root</property> 	
+    		
+    	<!-- hibernate properties -->
+    		<property name="show_sql">true</property>
+    		<property name="format_sql">true</property>
+    		<property name="hbm2ddl.auto">update</property>
+    		
+    	<!-- mapping filenames -->
+    	<mapping class = "com.nt.entity.Product"/>
+    	
+    	</session-factory>
+    </hibernate-configuration>
