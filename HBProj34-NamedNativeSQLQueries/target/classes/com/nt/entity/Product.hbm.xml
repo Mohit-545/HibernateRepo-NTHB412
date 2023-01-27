@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>																	
+ 	<class name = "com.nt.entity.Product" table="PRODUCT" dynamic-insert = "true">
+			<!-- o-r-mapping -->
+			<id name="pid" column="PID">		<!-- Singular id Field cfg -->
+					<generator class="increment"/>
+			</id>		
+			
+			<property name="pname" column="PNAME" />
+			<property name="price" column="PRICE"/>
+			<property name="qty" column="QTY"/>
+	</class>
+	<!-- configure Named Query -->
+	<sql-query name="GET_PRODUCTS_BY_PRICE_RANGE">
+		<![CDATA[select * from Product where price>=? and price<=?]]>
+	</sql-query>
+	<sql-query name="HIKE_PRICE_BY_PRODUCT_NAME">
+		<![CDATA[update Product set price=price+? where pname=?]]>
+	</sql-query>
+</hibernate-mapping>
