@@ -4,14 +4,14 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 	<hibernate-mapping>
-	<class name="com.nt.entity.Department" table="BI_OTM_DEPARTMENT">	<!-- Entity table -->
+	<class name="com.nt.entity.Department" table="BI_OTM_DEPARTMENT" proxy="com.nt.entity.IDepartment">	<!-- Entity table -->
 		<id name="deptNo" column="DEPTNO">
 			<generator class="increment"/>
 		</id>
 		<property name="deptName" column="DEPTNAME" length="20"/>
 		<property name="deptHead" column="DEPTHEAD" length="20"/>
 		
-		<set name="employees" cascade="all-delete-orphan" lazy="extra">
+		<set name="employees" cascade="all-delete-orphan" lazy="extra" inverse="true">
 				<key column="DEPT_ID"/> <!-- FK column -->
 				<one-to-many class="com.nt.entity.Employee"/>
 		</set>

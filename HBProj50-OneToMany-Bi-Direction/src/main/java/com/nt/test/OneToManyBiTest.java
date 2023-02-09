@@ -9,10 +9,22 @@ public class OneToManyBiTest {
 
 	public static void main(String[] args) {
 		ICompanyDAO dao = new CompanyImplDAO();
+		
 		//dao.saveDataUsingParent();
 		System.out.println();
-		dao.saveDataUsingChild();
+		
+		//dao.saveDataUsingChild();
 		System.out.println();
+		
+		//dao.loadDataUsingParent();
+		System.out.println();
+		
+		//dao.loadDataUsingChild(); 
+		System.out.println();
+		
+		dao.loadDataUsingChildWithProxy();
+		System.out.println();
+		
 		//close SessionFactory 
 		HibernateUtil.closeSessionFactory();
 		

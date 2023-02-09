@@ -1,7 +1,11 @@
 //CompanyImplDAO.java
 package com.nt.dao;
 
+import java.util.List;
 import java.util.Set;
+
+import javax.persistence.Query;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,13 +13,14 @@ import org.hibernate.Transaction;
 
 import com.nt.entity.Department;
 import com.nt.entity.Employee;
+import com.nt.entity.IDepartment;
 import com.nt.utils.HibernateUtil;
 
 public class CompanyImplDAO implements ICompanyDAO {
 
 	@Override
 	public void saveDataUsingParent() {
-		Session ses = HibernateUtil.getSession();
+		/*Session ses = HibernateUtil.getSession();
 		Transaction tx = null;
 		try(ses){
 			//begin tx
@@ -50,12 +55,12 @@ public class CompanyImplDAO implements ICompanyDAO {
 				System.out.println("Parents to child are not saved");
 			}
 		}//catch
-
+		*/
 	}//method
 
 	@Override
 	public void saveDataUsingChild() {
-		Session ses = HibernateUtil.getSession();
+		/*Session ses = HibernateUtil.getSession();
 		Transaction tx = null;
 		try(ses){
 			//begin tx
@@ -90,7 +95,66 @@ public class CompanyImplDAO implements ICompanyDAO {
 				System.out.println("Child to Parent are not saved");
 			}
 		}//catch
+		*/
+	}//method
 
+	@Override
+	public void loadDataUsingParent() {
+		/*Session ses = HibernateUtil.getSession();
+		try(ses){
+			//load parent and associated child objects
+			Query query = ses.createQuery("from Department");
+			List<Department> list = query.getResultList();
+			list.forEach(dept->{
+				System.out.println(dept);
+				Set<Employee> child = dept.getEmployees();
+				child.forEach(emp->{
+					System.out.println(emp);
+				});
+				System.out.println();
+			});
+		}//try
+		catch (HibernateException he) {
+			he.printStackTrace();
+		}//catch*/
+		
+		}//method
+		
+		@Override
+		public void loadDataUsingChild() {
+		/*Session ses = HibernateUtil.getSession();
+		try(ses){
+			//load parent and associated child objects
+			Query query = ses.createQuery("from Employee");
+			List<Employee> list = query.getResultList();
+			list.forEach(emp->{
+				System.out.println("Child :: "+emp);
+				Department dept = emp.getDept();
+				System.out.println("Parent :: "+dept);
+			});
+		}//try
+		catch (HibernateException he) {
+			he.printStackTrace();
+		}//catch
+		
+		*/	}//method
+
+	@Override
+	public void loadDataUsingChildWithProxy() {
+		Session ses = HibernateUtil.getSession();
+		try(ses){
+			//load parent and associated child objects
+			Query query = ses.createQuery("from Employee");
+			List<Employee> list = query.getResultList();
+			list.forEach(emp->{
+				System.out.println("Child :: "+emp);
+				IDepartment dept = emp.getDept();
+				System.out.println("Parent :: "+dept);
+			});
+		}//try
+		catch (HibernateException he) {
+			he.printStackTrace();
+		}//catch
 	}//method
 		
 }//class
